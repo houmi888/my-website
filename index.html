@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哆啦杰票务 - 全球娱乐票务平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🎫</span>
+                <span>哆啦杰票务</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#concerts">演唱会</a></li>
+                <li><a href="#celebrity">线下活动</a></li>
+                <li><a href="#variety">明星周边</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#contact">客户反馈</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-search">🔍</button>
+                <button class="btn-login">👤</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">发现你的偶像</h1>
+                <p class="hero-subtitle">全球热门演唱会 · 综艺录制 · 探班签名 · 明星周边 · 体育赛事</p>
+                
+                <div class="hero-features">
+                    <div class="feature-badge">⚡ 全球签约</div>
+                    <div class="feature-badge">⚡ 一手票源</div>
+                    <div class="feature-badge">🎯 专业服务</div>
+                    <div class="feature-badge">🏆 直营保障</div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="搜去想去，演唱会，活动...">
+                        <button class="btn-search-hero">搜索</button>
+                    </div>
+                </div>
+
+                <div class="quick-categories">
+                    <button class="quick-cat-btn active">🎵 全部</button>
+                    <button class="quick-cat-btn">🎤 演唱会</button>
+                    <button class="quick-cat-btn">⭐ 线下活动</button>
+                    <button class="quick-cat-btn">📺 综艺录制</button>
+                    <button class="quick-cat-btn">🏆 体育赛事</button>
+                    <button class="quick-cat-btn">🎁 明星周边</button>
+                    <button class="quick-cat-btn">📅 明星周边</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI音乐生成板块 -->
+    <section id="ai-music" class="ai-music-section section">
+        <div class="container">
+            <div class="ai-music-header">
+                <h2 class="section-title">🎵 AI音乐生成器</h2>
+                <p class="ai-music-subtitle">输入你的想法，AI为你创作专属音乐</p>
+            </div>
+
+            <div class="ai-music-content">
+                <div class="ai-music-generator">
+                    <div class="generator-card">
+                        <div class="generator-header">
+                            <div class="header-icon">🎼</div>
+                            <div class="header-text">
+                                <h3>创作你的专属音乐</h3>
+                                <p>描述你想要的音乐风格，AI将为你生成独特的旋律</p>
+                            </div>
+                        </div>
+
+                        <div class="generator-form">
+                            <div class="form-group">
+                                <label for="music-prompt">音乐描述</label>
+                                <textarea 
+                                    id="music-prompt" 
+                                    class="music-input" 
+                                    placeholder="例如：一首轻快的流行歌曲，适合夏天听，带有吉他和钢琴..."
+                                    rows="4"
+                                ></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="music-style">音乐风格</label>
+                                    <select id="music-style" class="music-select">
+                                        <option value="">选择风格</option>
+                                        <option value="pop">流行 Pop</option>
+                                        <option value="rock">摇滚 Rock</option>
+                                        <option value="jazz">爵士 Jazz</option>
+                                        <option value="classical">古典 Classical</option>
+                                        <option value="electronic">电子 Electronic</option>
+                                        <option value="hiphop">嘻哈 Hip-Hop</option>
+                                        <option value="folk">民谣 Folk</option>
+                                        <option value="rnb">R&B</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="music-mood">情绪氛围</label>
+                                    <select id="music-mood" class="music-select">
+                                        <option value="">选择情绪</option>
+                                        <option value="happy">快乐 Happy</option>
+                                        <option value="sad">悲伤 Sad</option>
+                                        <option value="energetic">充满活力 Energetic</option>
+                                        <option value="calm">平静 Calm</option>
+                                        <option value="romantic">浪漫 Romantic</option>
+                                        <option value="mysterious">神秘 Mysterious</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button class="btn-generate" id="btn-generate-music">
+                                <span class="btn-icon">✨</span>
+                                <span>生成音乐</span>
+                            </button>
+                        </div>
+
+                        <div class="generator-result" id="music-result" style="display: none;">
+                            <div class="result-header">
+                                <h4>🎉 你的音乐已生成</h4>
+                            </div>
+                            <div class="music-player">
+                                <div class="player-visual">
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                </div>
+                                <div class="player-controls">
+                                    <button class="btn-play">▶️ 播放</button>
+                                    <div class="player-info">
+                                        <span class="music-title">AI生成音乐</span>
+                                        <span class="music-duration">0:00 / 3:00</span>
+                                    </div>
+                                    <button class="btn-download">⬇️ 下载</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 全球演唱会 -->
+    <section id="concerts" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">全球演唱会</h2>
+                <a href="#" class="section-link">查看更多 →</a>
+            </div>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="event-image" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800&q=80') center/cover;">
+                        <span class="event-tag">🔥 热门</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Taylor Swift | The Eras Tour</h3>
+                        <p class="event-location">📍 东京巨蛋</p>
+                        <p class="event-date">📅 2026年5月15日</p>
+                        <div class="event-footer">
+                            <div class="event-price">一手价</div>
+                            <button class="btn-book">咨询客服</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.9), rgba(245, 87, 108, 0.9)), url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80') center/cover;">
+                        <span class="event-tag">⚡ 即将开售</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>周杰伦 嘉年华世界巡回演唱会</h3>
+                        <p class="event-location">📍 上海梅赛德斯奔驰文化中心</p>
+                        <p class="event-date">📅 2026年6月20日</p>
+                        <div class="event-footer">
+                            <div class="event-price">一手价</div>
+                            <button class="btn-book">咨询客服</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.9), rgba(0, 242, 254, 0.9)), url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80') center/cover;"></div>
+                    <div class="event-info">
+                        <h3>Coldplay Music Of The Spheres</h3>
+                        <p class="event-location">📍 伦敦温布利球场</p>
+                        <p class="event-date">📅 2026年7月8日</p>
+                        <div class="event-footer">
+                            <div class="event-price">一手价</div>
+                            <button class="btn-book">咨询客服</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" style="background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(254, 225, 64, 0.9)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80') center/cover;"></div>
+                    <div class="event-info">
+                        <h3>五月天 人生无限公司巡回演唱会</h3>
+                        <p class="event-location">📍 台北小巨蛋</p>
+                        <p class="event-date">📅 2026年8月12日</p>
+                        <div class="event-footer">
+                            <div class="event-price">一手价</div>
+                            <button class="btn-book">咨询客服</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 明星线下活动 -->
+    <section id="celebrity" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">明星线下活动</h2>
+                <a href="#" class="section-link">查看更多 →</a>
+            </div>
+            <div class="event-grid">
+                <div class="event-card">
+                    <div class="event-image" style="background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(254, 225, 64, 0.9)), url('https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=800&q=80') center/cover;">
+                        <span class="event-tag">💎 限量</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>肖战粉丝见面会</h3>
+                        <p class="event-location">📍 北京工人体育馆</p>
+                        <p class="event-date">📅 2026年5月28日</p>
+                        <div class="event-footer">
+                            <div class="event-price">一手价</div>
+                            <button class="btn-book">咨询客服</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" style="background: linear-gradient(135deg, rgba(48, 207, 208, 0.9), rgba(51, 8, 103, 0.9)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80') center/cover;"></div>
+                    <div class="event-info">
+                        <h3>BLACKPINK 亚洲粉丝见面会</h3>
+                        <p class="event-location">📍 首尔奥林匹克公园</p>
+                        <p class="event-date">📅 2026年6月5日</p>
+                        <div class="event-footer">
+                            <div class="event-price">一手价</div>
+                            <button class="btn-book">咨询客服</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image" style="background: linear-gradient(135deg, rgba(168, 237, 234, 0.9), rgba(254, 214, 227, 0.9)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80') center/cover;"></div>
+                    <div class="event-info">
+                        <h3>王一博签名会</h3>
+                        <p class="event-location">📍 深圳会展中心</p>
+                        <p class="event-date">📅 2026年6月18日</p>
+                        <div class="event-footer">
+                            <div class="event-price">一手价</div>
+                            <button class="btn-book">咨询客服</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 明星周边抽奖板块 -->
+    <section id="variety" class="merchandise-lottery section">
+        <div class="container">
+            <div class="lottery-header">
+                <h2 class="section-title">🎁 添加客服抽明星周边</h2>
+                <p class="lottery-subtitle">100%中奖 · 每日限量 · 先到先得</p>
+            </div>
+
+            <!-- 奖品展示 -->
+            <div class="prizes-showcase">
+                <div class="prize-card-new featured">
+                    <div class="prize-badge-new">🔥 超值大奖</div>
+                    <div class="prize-img-new" style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.9), rgba(245, 87, 108, 0.9)), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80') center/cover;"></div>
+                    <div class="prize-content-new">
+                        <h3>明星亲笔签名照</h3>
+                        <p class="prize-subtitle-new">Taylor Swift · 周杰伦 · 肖战</p>
+                        <div class="prize-price-new">
+                            <span class="old-price-new">¥1,280</span>
+                            <span class="new-price-new">免费抽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prize-card-new">
+                    <div class="prize-badge-new">⭐ 热门</div>
+                    <div class="prize-img-new" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80') center/cover;"></div>
+                    <div class="prize-content-new">
+                        <h3>明星同款服饰</h3>
+                        <p class="prize-subtitle-new">演唱会同款T恤、卫衣</p>
+                        <div class="prize-price-new">
+                            <span class="old-price-new">¥680</span>
+                            <span class="new-price-new">免费抽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prize-card-new">
+                    <div class="prize-badge-new">🎉 惊喜</div>
+                    <div class="prize-img-new" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.9), rgba(0, 242, 254, 0.9)), url('https://images.unsplash.com/photo-1594623930572-300a3011d9ae?w=600&q=80') center/cover;"></div>
+                    <div class="prize-content-new">
+                        <h3>门票优惠券</h3>
+                        <p class="prize-subtitle-new">50-500元抵扣券</p>
+                        <div class="prize-price-new">
+                            <span class="old-price-new">¥500</span>
+                            <span class="new-price-new">免费抽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA区域 -->
+            <div class="lottery-cta-new">
+                <div class="cta-card-new">
+                    <div class="cta-header-new">
+                        <h3>🎊 立即添加客服参与抽奖</h3>
+                        <p>发送"抽奖"即可参与，100%中奖！</p>
+                    </div>
+                    
+                    <div class="cta-body-new">
+                        <div class="benefits-grid-new">
+                            <div class="benefit-new">✓ 100%中奖</div>
+                            <div class="benefit-new">✓ 免费包邮</div>
+                            <div class="benefit-new">✓ 5分钟响应</div>
+                            <div class="benefit-new">✓ 每日限量</div>
+                        </div>
+
+                        <button class="btn-lottery-new">
+                            <span class="btn-icon-new">💬</span>
+                            <span>立即添加客服抽奖</span>
+                        </button>
+
+                        <div class="contact-methods">
+                            <h4 class="methods-title">选择你的联系方式</h4>
+                            <div class="methods-grid">
+                                <a href="weixin://dl/chat?dorajiepw" class="method-card wechat">
+                                    <div class="method-icon">💬</div>
+                                    <div class="method-info">
+                                        <h5>微信</h5>
+                                        <p>dorajiepw</p>
+                                    </div>
+                                    <div class="method-arrow">→</div>
+                                </a>
+
+                                <a href="https://wa.me/8618888888888" target="_blank" class="method-card whatsapp">
+                                    <div class="method-icon">📱</div>
+                                    <div class="method-info">
+                                        <h5>WhatsApp</h5>
+                                        <p>+86 188 8888 8888</p>
+                                    </div>
+                                    <div class="method-arrow">→</div>
+                                </a>
+
+                                <a href="https://line.me/ti/p/dorajiepw" target="_blank" class="method-card line">
+                                    <div class="method-icon">💚</div>
+                                    <div class="method-info">
+                                        <h5>LINE</h5>
+                                        <p>@dorajiepw</p>
+                                    </div>
+                                    <div class="method-arrow">→</div>
+                                </a>
+                            </div>
+                            <p class="methods-note">点击任意方式直接跳转联系客服</p>
+                        </div>
+
+                        <div class="contact-info-new">
+                            <span class="contact-label-new">客服微信：</span>
+                            <span class="contact-value-new">dorajiepw</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-row-new">
+                        <div class="stat-new">
+                            <span class="stat-num-new">2,580+</span>
+                            <span class="stat-label-new">今日参与</span>
+                        </div>
+                        <div class="stat-new">
+                            <span class="stat-num-new">98%</span>
+                            <span class="stat-label-new">满意度</span>
+                        </div>
+                        <div class="stat-new">
+                            <span class="stat-num-new">5分钟</span>
+                            <span class="stat-label-new">响应时间</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌背书区域 -->
+    <section id="about" class="brand-trust section">
+        <div class="container">
+            <h2 class="section-title">为什么选择哆啦杰票务</h2>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-card-icon">🏆</div>
+                    <h3>10年行业经验</h3>
+                    <p>服务超过500万用户，累计出票超1000万张</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon">🤝</div>
+                    <h3>官方合作伙伴</h3>
+                    <p>与全球200+演出主办方直接合作，确保票源真实</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon">⚡</div>
+                    <h3>极速出票</h3>
+                    <p>电子票即时到账，纸质票顺丰包邮</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon">💰</div>
+                    <h3>价格透明</h3>
+                    <p>无隐藏费用，明码标价，拒绝套路</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon">🛡️</div>
+                    <h3>售后无忧</h3>
+                    <p>7×24小时客服在线，演出取消全额退款</p>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-card-icon">🔐</div>
+                    <h3>信息安全</h3>
+                    <p>银行级加密技术，保护您的个人信息</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户反馈模块 -->
+    <section id="contact" class="testimonials section">
+        <div class="container">
+            <h2 class="section-title">用户真实评价</h2>
+            <p class="section-subtitle">已有超过50万用户给予好评</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">👨</div>
+                        <div class="user-info">
+                            <h4>张先生</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"在哆啦杰买了Taylor Swift演唱会的票，出票速度超快，座位也很好！客服态度特别好，解答了我所有疑问。强烈推荐！"</p>
+                    <div class="testimonial-footer">
+                        <span class="testimonial-event">Taylor Swift 演唱会</span>
+                        <span class="testimonial-date">2026-04-15</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">👩</div>
+                        <div class="user-info">
+                            <h4>李女士</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"第一次在网上买演唱会门票，本来还有点担心，结果非常顺利！票是真的，价格也合理，以后买票就认准哆啦杰了。"</p>
+                    <div class="testimonial-footer">
+                        <span class="testimonial-event">周杰伦演唱会</span>
+                        <span class="testimonial-date">2026-04-10</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">👨‍💼</div>
+                        <div class="user-info">
+                            <h4>王先生</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"帮公司采购了一批体育赛事门票，哆啦杰提供了团购优惠，还有专人对接服务。非常专业，值得信赖！"</p>
+                    <div class="testimonial-footer">
+                        <span class="testimonial-event">NBA中国赛</span>
+                        <span class="testimonial-date">2026-04-08</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">👧</div>
+                        <div class="user-info">
+                            <h4>小美</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"追星女孩必备！在这里买过好几次明星见面会的票了，每次都很顺利。价格比黄牛便宜多了，还有保障。"</p>
+                    <div class="testimonial-footer">
+                        <span class="testimonial-event">肖战粉丝见面会</span>
+                        <span class="testimonial-date">2026-04-05</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">👨‍🎓</div>
+                        <div class="user-info">
+                            <h4>陈同学</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"学生党福音！价格实惠，还经常有优惠活动。上次买的综艺录制门票是免费的，现场氛围超棒！"</p>
+                    <div class="testimonial-footer">
+                        <span class="testimonial-event">快乐大本营录制</span>
+                        <span class="testimonial-date">2026-04-01</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="user-avatar">👩‍💼</div>
+                        <div class="user-info">
+                            <h4>刘女士</h4>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"因为行程变化需要退票，本以为会很麻烦，结果客服处理得非常快，全额退款。服务态度超级好，大赞！"</p>
+                    <div class="testimonial-footer">
+                        <span class="testimonial-event">Coldplay演唱会</span>
+                        <span class="testimonial-date">2026-03-28</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 统计数据 -->
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">500万+</div>
+                    <div class="stat-label">服务用户</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000万+</div>
+                    <div class="stat-label">累计出票</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.8%</div>
+                    <div class="stat-label">好评率</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">在线客服</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司介绍</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">购票指南</a></li>
+                        <li><a href="#">退换票政策</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">抖音</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 哆啦杰票务. All rights reserved. | 营业执照：91110000XXXXXXXX | ICP备案号：京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
