@@ -2,7 +2,7 @@
 const btnLotteryNew = document.querySelector('.btn-lottery-new');
 if (btnLotteryNew) {
     btnLotteryNew.addEventListener('click', () => {
-        alert('🎊 恭喜您！\n\n请添加客服微信参与抽奖：\n\n微信号：dorajiepw\n\n添加后发送"抽奖"即可参与\n100%中奖，先到先得！');
+        alert('🎊 恭喜您！\n\n请添加客服微信参与抽奖：\n\n微信号：tc5816888\n\n添加后发送"抽奖"即可参与\n100%中奖，先到先得！');
     });
 }
 
@@ -103,7 +103,7 @@ document.querySelectorAll('.btn-book').forEach(button => {
         }, 150);
         
         // 模拟咨询客服
-        alert(`咨询活动: ${eventName}\n\n客服微信：dorajiepw\n客服电话：400-888-8888\n\n工作时间：9:00-21:00`);
+        alert(`咨询活动: ${eventName}\n\n客服微信：tc5816888\n客服电话：400-888-8888\n\n工作时间：9:00-21:00`);
     });
 });
 
